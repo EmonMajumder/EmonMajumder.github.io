@@ -7,6 +7,7 @@
 body {
   background-color: color("cyan","lighten-5");
 }
+
 @media #{$large-and-up} {
   .container {
     width: 90%;
@@ -82,6 +83,7 @@ $modal-outline-color: color("orange","base");
   border:thin solid black;
   border-radius: 10px;
 }
+
 #countrylist{
   background-color: color("deep-purple","lighten-5");
 }
@@ -90,12 +92,9 @@ $modal-outline-color: color("orange","base");
   background-color: white;
 }
 
-
 #unilist{
   background-color: color("amber","lighten-5");
 }
-
-
 
 #flag{
   display: none;
