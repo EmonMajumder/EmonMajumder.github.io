@@ -1,0 +1,106 @@
+@media #{$medium-and-up} {
+  .container {
+    width: 90%;    
+  }
+}
+
+body {
+  background-color: color("cyan","lighten-5");
+}
+
+@media #{$large-and-up} {
+  .container {
+    width: 90%;
+  }
+}
+
+@mixin padfont{
+  padding: 2px;
+  font-size: 16px;
+}
+
+$ptag-color: color("light-blue", "lighten-3") !default;
+$scrollbar-color: color("teal", "lighten-1") !default;
+$modal-outline-color: color("orange","base");
+
+.z-depth-1-half {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+@mixin hoverhighlight {
+    cursor: pointer;
+    @include padfont;
+    &:hover {
+      background-color: lighten($button-raised-background, 5%);
+      @extend .z-depth-1-half;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+}
+
+.container {
+  margin: 0 auto;
+  min-width: 1200px;
+  width: 90%;
+}
+
+.uniName, .webLink, .countryName {
+  @include hoverhighlight;
+}
+
+.uninumber{
+  @include padfont;
+}
+
+.countryholder{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.countryclicked{
+  cursor: pointer;
+  padding: 2px;
+  font-size: 16px;
+  background-color: lighten($button-raised-background, 5%);
+  @extend .z-depth-1-half;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  // Width of vertical scroll bar
+  width: 12px;
+  // Height of horizontal scroll bar
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 30px;
+  border-radius: 8px;
+  background: $scrollbar-color;
+}
+
+#search, #countrylist, #unilist {
+  border:thin solid black;
+  border-radius: 10px;
+}
+
+#countrylist{
+  background-color: color("deep-purple","lighten-5");
+}
+
+#search{
+  background-color: white;
+}
+
+#unilist{
+  background-color: color("amber","lighten-5");
+}
+
+#flag{
+  display: none;
+  align-content: center;
+}
+
+#unilistinnerdiv, #countrylistinnerdiv{
+  overflow-y: auto;
+}
