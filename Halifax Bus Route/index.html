@@ -5,14 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HRM Bus Route Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="leaflet-rotatedmarker.js"></script>
 </head>
-<body style="margin:0px;">
+<body style="margin:0px;">    
     <div id="map-wrapper" style="width: 100%; height:100%; position: fixed;">
         <div id="theMap" style="width: 100%; height:100%; position: relative;"></div>
     </div>
+    <div style="position: fixed; right:15px;top:10px">
+        <div style="background-color: white; padding:5px;">
+            Route Number
+            <input id="busroutesearch" style="background-color: white; width:30px; padding:3px;">
+        </div> 
+    </div>
     <script src='main.js'></script>
-</body>
-</html>
+</bo

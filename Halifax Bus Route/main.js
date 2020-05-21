@@ -1,5 +1,6 @@
 (function(){
 
+    let routenum = 0;
     //create map in leaflet and tie it to the div called 'theMap'
     var map = L.map('theMap').setView([44.650627, -63.597140], 14);
 
@@ -7,9 +8,9 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-    L.marker([44.669178, -63.613382]).addTo(map)
-        .bindPopup('You are here now.')
-        .openPopup();   
+    // L.marker([44.669178, -63.613382]).addTo(map)
+    //     .bindPopup('You are here now.')
+    //     .openPopup();   
 
         var url ='https://hrmbuses.herokuapp.com/';
    
@@ -26,8 +27,16 @@
             if(layer){
                 map.removeLayer(layer);
             }
+
+            let myArray;
             
-            let myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId <= 10 || busInfo.vehicle.trip.routeId ==="9A"|| busInfo.vehicle.trip.routeId ==="9B");
+            if(routenum == 0){
+                myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId <= 10 || busInfo.vehicle.trip.routeId ==="9A"|| busInfo.vehicle.trip.routeId ==="9B");
+            }
+            else{
+                myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId == routenum);
+            }
+            
             
             myArray = myArray.map(busInfo=>
             {
@@ -74,10 +83,15 @@
     
             }).addTo(map);
     
-            setTimeout(busRoute,7000);                     
+            setTimeout(busRoute(routenum),7000);                     
         });
 
        }
 
-       busRoute();
+       $("#busroutesearch").keyup(function(){
+
+        routenum = $(this).val();
+      })
+
+       busRoute(routenum);
 })()
