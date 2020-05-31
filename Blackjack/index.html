@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Blackjack</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="materialize\sass\materialize.css"> 
+        <script src="materialize\js\bin\materialize.js"></script>                 
+        <script src="blackjack.js"></script>
+    </head>    
+    
+    <body>        
+        <div class="container center-align">
+            <img id="coverphoto" src="cover.png" width=60% style="z-index: -1000;">
+
+            <div class="hide">
+                <div class="row showroundandcoin" id="roundandcoin">
+                    <div class="col s4 center-wrapper">                                                    
+                        <img src="coin.png">You have:&nbsp;<div id="coin"></div>
+                    </div> 
+                    <div class="col s4 center-wrapper">
+                        Round:&nbsp;<div id="round"></div> 
+                    </div>
+                    <div class="col s4 center-wrapper">
+                        <img src="coin.png">Bet:&nbsp;<div id="betting"></div>                  
+                    </div>                               
+                </div>
+    
+                <div class="cardshown" id="dealercards" style="height:210px"></div>            
+                <div class="center-wrapper cardshown">
+                    <div>Dealer&nbsp;</div><div id="dealer_score"></div>
+                </div>
+                <div class="center-wrapper cardshown">
+                    <div>You&nbsp;</div><div id="player_score"></div>
+                </div>
+                <div class="cardshown" id="playercards" style="height:210px"></div>            
+            </div>           
+            <br>
+            <div class="row center-align" id="allbuttons">
+                <button data-target="modalbet" class="btn modal-trigger waves-effect waves-light" id="btnPlay">play</button>   
+                <button class="btn" id="btnHit">Hit</button>
+                <button class="btn" id="btnStay">Stay</button>
+                <button class="btn" id="btnNext">Next Round</button>             
+            </div>                        
+        </div>
+<!---------------------------------------------------------------------------------Modals-------------------------------------------------------------------------------------->
+
+        <div class="modal" id="modalbet">
+            <div class="modal-content center-align">
+                <div class="totalcoindiv">
+                    <div>You Have:&nbsp;<div id="totalcoinown"></div></div>
+                </div>
+                <br>                
+                <div class="row">
+                    <div class="col s6">
+                        <div class="row center-align right"  style="max-width: 130px;">
+                            <img class="betupdownhidden" src="up.png">                            
+                            <div class="showbetcoin"><div>Bet&nbsp;</div></div>
+                            <img class="betupdownhidden" src="down.png">
+                        </div>
+                    </div>
+                    <div class="col s6">                        
+                        <div class="row center-align"  id="betholder" style="width: 170px;">
+                            <img class="betupdown" id="betup" src="up.png">
+                            <div class="showbetcoin">
+                                <div id="betamount"></div>
+                            </div>
+                            <img class="betupdown" id="betdown" src="down.png">
+                        </div>                                                                       
+                    </div>
+                </div>                                
+            </div>
+            <div class="modal-footer center-align">      
+                <button id="btnmodalStartGame" class="btn">Start Game</button>     
+            </div>
+        </div>
+
+        <div class="modal" id="modalroundresult">
+            <div class="modal-content center-align">                
+                <h4 id="roundresult"></h4>
+                <div class="row center-align">
+                    <div class="col s6 right-align">
+                        <img src="coin.png" width="50px">
+                    </div>
+                    <div class="col s6 left-align">
+                        <h5 id="coinafter"></h5>   
+                    </div> 
+                </div>      
+            </div>
+            <div class="modal-footer center-align">
+                <button data-target="modalbet" id="btnmodalraisebet" class="btn modal-trigger">Raise Bet</button>        
+                <button id="btnmodalnextround" class="btn">Next Round</button>
+                <button id="btnmodalrestart" class="btn">Restart Game</button>     
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div id="animation"></div>
+        <div id="animation2"></div>
+        <div id="animationdealercard"></div>
+        <div id="animationdealercard2"></div>
+    </footer>
+</html>

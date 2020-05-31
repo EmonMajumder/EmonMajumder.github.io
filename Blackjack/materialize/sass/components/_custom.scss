@@ -1,0 +1,109 @@
+.betupdown{
+  cursor: pointer;
+  width: 50px;
+}
+
+.betupdownhidden{
+  @extend .betupdown;
+  visibility: hidden;
+}
+
+.scene {
+    perspective: 600px;
+    display: inline-block;
+  }
+  
+  .tcard {
+    width: 150px;
+    height: 208px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .tcard.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card__face {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .card__face--back {
+    background:white;
+    transform: rotateY(180deg);
+  }
+
+  .totalcoindiv{
+    font-size: 70px;
+    font-weight: bold;
+    img{
+      width: 60px;
+    }
+    div{
+      display: inline;
+    }
+  }
+
+  .showbetcoin{
+    div{
+      font-size: 50px;
+      font-weight: bold;
+      display: inline;
+    }
+    img{
+      width: 40px;
+    }
+  }
+
+  .showroundandcoin{
+    padding-top: 30px;
+    div{
+      font-size: 30px;
+      font-weight: bold;
+      img{        
+        width: 50px;
+      }
+    }
+  }
+
+  .cardshown{    
+    div{
+      font-size: 30px;
+      font-weight: bold;
+    }
+    img{
+      width: 150px;
+    }
+  }
+
+  // @keyframes example {
+  //   to {color:white;}
+  // }
+
+  .dealerscoreanimation{
+    transition: color 2s;
+    color: white;
+  }
+
+  .cardgiven{
+    visibility: hidden;
+  }
+
+  .cardgiven.driveInTop{
+    visibility: visible;
+  }
+
+  #player_score, #dealer_score{
+    width:40px;
+    border-radius: 50%;
+  }
+  
+  
+  

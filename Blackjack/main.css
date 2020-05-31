@@ -1,0 +1,42 @@
+body
+{
+    background-color: green;
+}
+
+img
+{
+    margin-top: 10px;
+}
+
+#banner{
+    margin: auto;
+    align-content: center;
+}
+
+.btn{
+    border:none;
+    padding: 10px 30px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:gray;
+}
+
+.cards
+{
+    float: left;
+    border: 10px;
+}
+
+#dealer_score, #player_score, #player, .game-options
+{
+    clear: both;
+}
+
+#dealer_score, #player_score,#banner
+{
+    color: white;
+    font-family: Arial;
+}
