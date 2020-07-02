@@ -6,11 +6,7 @@
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-    // L.marker([44.669178, -63.613382]).addTo(map)
-    //     .bindPopup('You are here now.')
-    //     .openPopup();   
+        }).addTo(map);   
 
         var url ='https://hrmbuses.herokuapp.com/';
    
@@ -59,8 +55,8 @@
     
             var busIcon = L.icon({
                 iconUrl:'bus.png',
-                iconSize:[50,50],
-                iconAnchor:[25,25]
+                iconSize:[30,30],
+                iconAnchor:[15,15]
                 // popupAnchor:[0,0]
             });
             
@@ -74,14 +70,13 @@
                         "Route ID: "+busData.properties.RouteID+
                         "<br>Bus No:"+busData.properties.BusNo
                         )
-                
                 // ,
                 // onEachFeature: (feature, layer)=>
                 //     layer.bindPopup(
                 //         "Route ID: "+feature.properties.RouteID+
                 //         "<br>Bus No:"+feature.properties.BusNo)
     
-            }).addTo(map);
+            }).addTo(map).bindPopup("Route ID: "+feature.properties.RouteID + "<br>Bus No:"+feature.properties.BusNo);
     
             setTimeout(busRoute(routenum),7000);                     
         });
