@@ -1,24 +1,40 @@
 (function(){
+    $("#businfo").css("display","none");
+    $("#businfo").text("");
 
     let routenum = 0;
     //create map in leaflet and tie it to the div called 'theMap'
-    var map = L.map('theMap').setView([44.650627, -63.597140], 14);
+    var map = L.map('theMap');
+
+    map.locate({setView: true, maxZoom: 16});
+
+    function onLocationFound(e) {
+        var radius = e.accuracy;    
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point");
+    }
+    
+    map.on('locationfound', onLocationFound);
+
+    function onLocationError(e) {
+        alert(e.message);
+    }
+    
+    map.on('locationerror', onLocationError);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);   
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-        var url ='https://hrmbuses.herokuapp.com/';
-   
-        var layer;
+    var url ='https://hrmbuses.herokuapp.com/';
+
+    var layer;
+
+    function busRoute(){
     
-        function busRoute(){
-        
         fetch(url)
         .then(response => response.json())
         .then(jsondata => {
-
-            //console.log(jsondata);
 
             if(layer){
                 map.removeLayer(layer);
@@ -66,27 +82,27 @@
                     L.marker(latlng,{
                         icon: busIcon, 
                         rotationAngle: busData.properties.bearing
-                    }).bindTooltip(
-                        "Route ID: "+busData.properties.RouteID+
-                        "<br>Bus No:"+busData.properties.BusNo
-                        )
-                // ,
-                // onEachFeature: (feature, layer)=>
-                //     layer.bindPopup(
-                //         "Route ID: "+feature.properties.RouteID+
-                //         "<br>Bus No:"+feature.properties.BusNo)
-    
-            }).addTo(map).bindPopup("Route ID: "+feature.properties.RouteID + "<br>Bus No:"+feature.properties.BusNo);
-    
-            setTimeout(busRoute(routenum),7000);                     
+                    }).bindTooltip("Route ID: "+busData.properties.RouteID+"<br>Bus No:"+busData.properties.BusNo).on('click',function(){
+                        $("#businfo").text("Route: "+busData.properties.RouteID);
+                        $("#businfo").css("display","block");
+                        setTimeout(function(){
+                            $("#businfo").css("display","none");
+                        },2000); 
+                    })
+                   
+            }).addTo(map);  
+            
+            setTimeout(busRoute(),7000);  
         });
+    }
 
-       }
-
-       $("#busroutesearch").keyup(function(){
-
+    $("#busroutesearch").keyup(function(){
         routenum = $(this).val();
-      })
+    })
 
-       busRoute(routenum);
+    $("#searchicon").click(function(){
+        routenum = $("#busroutesearch").val();
+    })
+
+    busRoute();
 })()
