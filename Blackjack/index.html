@@ -2,8 +2,8 @@
     <head>
         <title>Blackjack</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="materialize\sass\materialize.css"> 
-        <script src="materialize\js\bin\materialize.js"></script>                 
+        <link rel="stylesheet" href="materialize\sass\materialize.css">  
+        <script src="materialize\js\bin\materialize.js"></script>                      
         <script src="blackjack.js"></script>
     </head>    
     
@@ -28,17 +28,24 @@
                 <div class="center-wrapper cardshown">
                     <div>Dealer&nbsp;</div><div id="dealer_score"></div>
                 </div>
-                <div class="center-wrapper cardshown">
-                    <div>You&nbsp;</div><div id="player_score"></div>
-                </div>
-                <div class="cardshown" id="playercards" style="height:210px"></div>            
+
+                <div class="row">
+                    <div class="col split s6" id="firstset">
+                        <div class="center-wrapper cardshown">
+                            <div>You&nbsp;</div><div id="player_score"></div>
+                        </div>
+                        <div class="cardshown" id="playercards"></div> 
+                    </div>
+                    <div class="col split s6" id="extraset"></div>                     
+                </div>                          
             </div>           
-            <br>
             <div class="row center-align" id="allbuttons">
-                <button data-target="modalbet" class="btn modal-trigger waves-effect waves-light" id="btnPlay">play</button>   
-                <button class="btn" id="btnHit">Hit</button>
-                <button class="btn" id="btnStay">Stay</button>
-                <button class="btn" id="btnNext">Next Round</button>             
+                <button data-target="modalbet" class="btn-large modal-trigger waves-effect waves-light" id="btnPlay">play</button>   
+                <button class="btn-large" id="btnHit">Hit</button>
+                <button class="btn-large" id="btnStay">Stay</button>
+                <button class="btn-large" id="btnDouble">Double Down</button>
+                <button class="btn-large" id="btnNext">Next Round</button>
+                <button class="btn-large" id="btnSplit">Split</button>             
             </div>                        
         </div>
 <!---------------------------------------------------------------------------------Modals-------------------------------------------------------------------------------------->
@@ -69,7 +76,7 @@
                 </div>                                
             </div>
             <div class="modal-footer center-align">      
-                <button id="btnmodalStartGame" class="btn">Start Game</button>     
+                <button id="btnmodalStartGame" class="btn-large">Start Game</button>     
             </div>
         </div>
 
@@ -86,16 +93,20 @@
                 </div>      
             </div>
             <div class="modal-footer center-align">
-                <button data-target="modalbet" id="btnmodalraisebet" class="btn modal-trigger">Raise Bet</button>        
-                <button id="btnmodalnextround" class="btn">Next Round</button>
-                <button id="btnmodalrestart" class="btn">Restart Game</button>     
+                <button data-target="modalbet" id="btnmodalchangebet" class="btn-large modal-trigger">Change Bet</button>        
+                <button id="btnmodalnextround" class="btn-large">Next Round</button>
+                <button id="btnmodalrestart" class="btn-large">Restart Game</button>
+                <button id="btnmodalclose" class="btn-large">Close</button>     
             </div>
         </div>
     </body>
     <footer>
         <div id="animation"></div>
         <div id="animation2"></div>
+        <div id="animation3"></div>
+        <div id="animation4"></div>
         <div id="animationdealercard"></div>
         <div id="animationdealercard2"></div>
+        <div id="animationdealercard3"></div>
     </footer>
 </html>

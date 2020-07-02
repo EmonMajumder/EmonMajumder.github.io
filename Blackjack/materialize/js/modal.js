@@ -10,7 +10,7 @@
     onCloseStart: null,
     onCloseEnd: null,
     preventScrolling: true,
-    dismissible: true,
+    dismissible: false,
     startingTop: '4%',
     endingTop: '10%'
   };
@@ -41,7 +41,7 @@
        * @prop {Function} onOpenEnd - Callback function called after modal is opened
        * @prop {Function} onCloseStart - Callback function called before modal is closed
        * @prop {Function} onCloseEnd - Callback function called after modal is closed
-       * @prop {Boolean} [dismissible=true] - Allow modal to be dismissed by keyboard or overlay click
+       * @prop {Boolean} [dismissible=false] - Allow modal to be dismissed by keyboard or overlay click
        * @prop {String} [startingTop='4%'] - startingTop
        * @prop {String} [endingTop='10%'] - endingTop
        */
