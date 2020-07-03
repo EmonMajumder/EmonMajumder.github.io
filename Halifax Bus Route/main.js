@@ -29,6 +29,7 @@
     var url ='https://hrmbuses.herokuapp.com/';
 
     var layer;
+    let clickedbusicon = 0;
 
     function busRoute(){
     
@@ -82,17 +83,18 @@
                     L.marker(latlng,{
                         icon: busIcon, 
                         rotationAngle: busData.properties.bearing
-                    }).bindTooltip("Route ID: "+busData.properties.RouteID+"<br>Bus No:"+busData.properties.BusNo).on('click',function(){
-                        $("#businfo").text("Route: "+busData.properties.RouteID);
-                        $("#businfo").css("display","block");
-                        setTimeout(function(){
-                            $("#businfo").css("display","none");
-                        },2000); 
-                    })
-                   
-            }).addTo(map);  
+                    }).bindTooltip("Route: "+busData.properties.RouteID).on('click',function(){
+                        clickedbusicon = 1;
+                    })  
+            }).addTo(map);
             
-            setTimeout(busRoute(),7000);  
+            if(clickedbusicon==0){
+                setTimeout(busRoute(),7000);  
+            }else{
+                wait(2000);
+                clickedbusicon==0;
+                setTimeout(busRoute(),7000);  
+            }            
         });
     }
 
@@ -103,6 +105,21 @@
     $("#searchicon").click(function(){
         routenum = $("#busroutesearch").val();
     })
+
+    function wait(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+          end = new Date().getTime();
+       }
+     }
+
+    //  .on('click',function(){
+    //     $("#businfo").text("Route: "+busData.properties.RouteID);
+    //     $("#businfo").css("display","block");
+    //     setTimeout(function(){
+    //         $("#businfo").css("display","none");
+    //     },2000); 
 
     busRoute();
 })()
