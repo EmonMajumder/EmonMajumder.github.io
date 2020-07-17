@@ -709,6 +709,9 @@ a.dotted-link:hover {
   .project-image {
     margin-bottom: 15px;
   }
+  .elementor:not(.elementor-edit-area-active) .elementor-hidden-phone {
+    display: block !important;
+  }
 }
 
 @media (min-width: 1400px) {

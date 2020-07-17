@@ -4,6 +4,7 @@
     .header {
         text-align: center;
     }
+
     .header .profile-image {
         float: none !important;
         margin: 0 auto;
@@ -18,10 +19,14 @@
         margin-top: 30px;
         float: none !important;
     }
+
     .project-image {
         margin-bottom: 15px;
     }
     
+    .elementor:not(.elementor-edit-area-active) .elementor-hidden-phone {
+        display: block !important;
+    }
 }
 
 
