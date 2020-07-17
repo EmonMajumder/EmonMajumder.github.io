@@ -606,19 +606,19 @@ a.dotted-link {
 .footer {
     background: darken($color, 30%);
     color: #fff;  
-    padding: 10px 0;  
-    
-    
+    padding: 10px 0;    
     .copyright {
         line-height: 1.6;
         color: lighten($color, 15%);
         font-size: 14px;       
-    }  
-    
+    }    
     a {
         color: #fff;
     }
     .fa-heart {
         color: $heart;
+    }
+    img {
+        width: 30px;
     }
 }

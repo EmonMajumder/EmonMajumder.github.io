@@ -686,6 +686,10 @@ a.dotted-link:hover {
   color: #fb866a;
 }
 
+.footer img {
+  width: 30px;
+}
+
 @media (max-width: 767.98px) {
   .header {
     text-align: center;
