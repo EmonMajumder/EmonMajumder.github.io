@@ -410,8 +410,7 @@ a.dotted-link:hover {
 }
 
 .experience .exlogo {
-  border: 1px solid black;
-  height: 50px;
+  height: 40px;
   border-radius: 100%;
 }
 
@@ -488,8 +487,8 @@ a.dotted-link:hover {
   top: -1px;
 }
 
-.skills .skillset .item .langlogo, .skills .skillset .item .exlogo {
-  height: 50px;
+.skills .skillset .item .langlogo {
+  height: 40px;
   border-radius: 100%;
 }
 
@@ -590,7 +589,7 @@ a.dotted-link:hover {
 }
 
 .education .edulogo {
-  width: 35px;
+  width: 40px;
   border-radius: 100%;
 }
 
