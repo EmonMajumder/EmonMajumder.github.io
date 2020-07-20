@@ -38,21 +38,36 @@ function experienceyear(){
     });
 }
 
+function eduyear(){
+    $('.edulist > .item').each(function(index){
+        if($(this).children('.university').position().top == $(this).children('.university').children('.year').position().top){
+            $(this).children('.university').children('.year').css("margin-top","11px");
+        }else{
+            $(this).children('.university').children('.year').css("margin-top","0px");
+        }
+    });
+}
+
 var forprojecttool;
 var forexperienceyear;
+var foreduyear;
 
 $(window).resize(function() {
     clearTimeout(forprojecttool);
     forprojecttool = setTimeout(Projecttool, 500);    
 
     clearTimeout(forexperienceyear);
-    forexperienceyear = setTimeout(experienceyear, 500);  
+    forexperienceyear = setTimeout(experienceyear, 500);
+    
+    clearTimeout(foreduyear);
+    foreduyear = setTimeout(eduyear, 500);
 });
 
 jQuery(document).ready(function($) {
 
     Projecttool();
     experienceyear();
+    eduyear();
 
     $(".otherproject > .item").each(function(){
         let a = this;
@@ -143,9 +158,27 @@ jQuery(document).ready(function($) {
 
     $(".experiencedetail > .item").each(function(){
         let a = this;
-        if($(a).children('p').children('img').length>0){
-            $(a).children('a').click(function(){
+        if($(a).children('.relatedimage').length>0){
+            $(a).children('.viewimages').click(function(){
                 if($(a).children('.relatedimage').css("display") == "none"){
+                    if($(a).children('.title').text().includes("International Student Ambassador")){
+                        $(a).children('.relatedimage').html(
+                            `<img class="img-fluid activity-image" src="assets/images/activities/nsccisa (6).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (7).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (4).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (1).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (8).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (2).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (3).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (5).jpg" />`
+                        );
+                    }else if($(a).children('.title').text().includes("Junior Software Developer (Co-op)")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/bbcertificate.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("Senior Analyst")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/kaziit.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("Class Representative")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/sa.jpg"/>`);
+                    }
                     $(a).children('.relatedimage').css("display","block");
                     $(this).html($(this).html().replace("View","Hide"));
                 }else{
