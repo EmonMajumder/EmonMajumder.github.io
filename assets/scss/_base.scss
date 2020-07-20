@@ -322,8 +322,7 @@ a.dotted-link {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
-            line-height: 1.5;
-            
+            line-height: 1.5;            
             .place {
                 color: $grey;
                 font-weight: normal; 
@@ -334,25 +333,40 @@ a.dotted-link {
                     }
                 }
             }
-            .year {
+            .year {             
                 color: $grey;
                 font-weight: normal;
             }
-        }        
+        }
+        a {
+            color: $color-2;
+            @include transition (all 0.4s ease-in-out);
+            &:hover {
+                text-decoration: underline;
+                color: darken($color, 10%);
+                color: darken($color-2, 10%);
+                cursor: pointer;
+            }
+            &:focus {
+                text-decoration: none;
+            }
+        }   
     }
-
     .exlogo{
         border: 1px solid black;
         height: 50px;
         border-radius: 100%;
-    }
-
-    
+    }    
     .activity-image {
         max-width: 48%;
         border: 2px solid;
         margin: 2px;
     }
+}
+
+.relatedimage{
+    display: none;
+    text-align: center;
 }
 
 /* Git section */

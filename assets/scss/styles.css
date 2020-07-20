@@ -390,6 +390,25 @@ a.dotted-link:hover {
   font-weight: normal;
 }
 
+.experience .item a {
+  color: #3AAA64;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.experience .item a:hover {
+  text-decoration: underline;
+  color: #5f6b77;
+  color: #2d844e;
+  cursor: pointer;
+}
+
+.experience .item a:focus {
+  text-decoration: none;
+}
+
 .experience .exlogo {
   border: 1px solid black;
   height: 50px;
@@ -400,6 +419,11 @@ a.dotted-link:hover {
   max-width: 48%;
   border: 2px solid;
   margin: 2px;
+}
+
+.relatedimage {
+  display: none;
+  text-align: center;
 }
 
 /* Git section */
