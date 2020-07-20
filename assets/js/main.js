@@ -24,10 +24,10 @@ function Projecttool(){
 function experienceyear(){
     $('.experiencedetail > .item').each(function(index){  
         $(this).children('br').css("display","none");   
-        if($(this).children('h3').height() > 70){
+        if($(this).children('h3').height() > 60){
             $(this).children('h3').children('.year').css("margin-top","0px");
         }else{
-            $(this).children('h3').children('.year').css("margin-top","11px");
+            $(this).children('h3').children('.year').css("margin-top","6px");
         }
         if($(this).children('h3').children('.year').length>0){
             if($(this).children('h3').children('.year').position().top +20 > $(this).children('p').position().top){                           

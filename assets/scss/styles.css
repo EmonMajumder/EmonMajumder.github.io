@@ -191,6 +191,10 @@ a.dotted-link:hover {
 }
 
 /* About Section */
+.about {
+  display: block;
+}
+
 /* Latest Section */
 .latest .item {
   margin-bottom: 30px;
