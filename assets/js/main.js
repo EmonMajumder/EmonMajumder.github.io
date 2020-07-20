@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
         }else if($(this).children('.level-title').text()==" SQL"){
             $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/sql.png"/>');
         }else if($(this).children('.level-title').text()==" Github"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/Octocat.png"/>');
+            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/octocat.png"/>');
         } else if($(this).children('.level-title').text()==" Linux/Unix"){
             $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/linux.png"/>');
         } else if($(this).children('.level-title').text()==" Hibernate"){
@@ -163,14 +163,15 @@ jQuery(document).ready(function($) {
                 if($(a).children('.relatedimage').css("display") == "none"){
                     if($(a).children('.title').text().includes("International Student Ambassador")){
                         $(a).children('.relatedimage').html(
-                            `<img class="img-fluid activity-image" src="assets/images/activities/nsccisa (6).jpg" />
-                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (7).jpg" />
+                            `<img class="img-fluid activity-image" src="assets/images/activities/nsccisa (7).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (9).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (4).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (1).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (8).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (2).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (3).jpg" />
-                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (5).jpg" />`
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (5).jpg" />
+                            <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (6).jpg" />`
                         );
                     }else if($(a).children('.title').text().includes("Junior Software Developer (Co-op)")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/bbcertificate.jpg"/>`);
@@ -178,6 +179,10 @@ jQuery(document).ready(function($) {
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/kaziit.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Class Representative")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/sa.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("NSCC 2019 Blockchain Hackathon")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/blockchainhackathon.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("Dalhousie University 2020 Banking and Insurance Hackathon")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/bankinghackathon.jpg"/>`);
                     }
                     $(a).children('.relatedimage').css("display","block");
                     $(this).html($(this).html().replace("View","Hide"));
