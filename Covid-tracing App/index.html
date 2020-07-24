@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covid-19</title>
+  <link rel="icon" href="icon.png">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="materialize-src\sass\materialize.css">
+  <script src="materialize-src\js\bin\materialize.min.js"></script>
+  <link rel="stylesheet" href="spin.css">
+  <script src="spin.js"></script>  
+  <link rel="stylesheet" href="jqvmap.css"> 
+  <script src="jquery.vmap.js"></script>
+  <script src="jquery.vmap.canada.js"></script>
+  <script src="main.js"></script> 
+</head>
+<body>
+  <!-- This is heading -->
+  <div class="container">
+    <div class="row center">      
+      <h3>Covid-19 Updates</h3>
+    </div> 
+    <h2 id="province" class="center">Canada</h2>
+
+    <div id="vmap"></div>   
+
+    <div class="row center">          
+      <h5>Date: <span id="date"></span></h5>
+      <table id="summary" class="responsive-table centered highlight">
+        <thead>
+          <tr>
+              <th>Title</th>
+              <th>Total</th>
+              <th>New</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>Cases</td>
+              <td class="total"></td>
+              <td class="new"></td>            
+          </tr>
+          <tr>
+              <td>Deaths</td>
+              <td class="total"></td>
+              <td class="new"></td>
+          </tr>
+          <tr>
+              <td>Tests</td>
+              <td class="total"></td>
+              <td class="new"></td>
+          </tr>
+          <tr>
+              <td>Hospitalizations</td>
+              <td class="total"></td>
+              <td class="new"></td>
+          </tr>
+          <tr>
+              <td>Criticals</td>
+              <td class="total"></td>
+              <td class="new"></td>
+          </tr>
+          <tr>
+              <td>Recoveries</td>
+              <td class="total"></td>
+              <td class="new"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row center graph">
+      <div class="case" id="caseandrecoverieschange">
+
+      </div>
+      <h5>New Cases vs New Recoveries</h5>      
+    </div>
+
+    <div class="row center graph">
+      <div class="case" id="caseandrecoveriestotal">
+
+      </div> 
+      <h5>Total Cases vs Total Recoveries</h5>        
+    </div>
+
+    <div class="row center graph">
+      <div class="death" id="deathchange">
+
+      </div>
+      <h5>New Hospitalizations vs New Death</h5>      
+    </div>
+
+    <div class="row center graph">
+      <div class="death" id="deathtotal">
+
+      </div>
+      <h5>Total Hospitalizations vs Total Death</h5>      
+    </div>
+
+    <div class="row center provinces">
+      <button class="waves-effect waves-light btn" value="ca">Canada</button>
+      <button class="waves-effect waves-light btn" value="ab">Alberta</button>
+      <button class="waves-effect waves-light btn" value="bc">British Columbia</button>
+      <button class="waves-effect waves-light btn" value="mb">Manitoba</button>
+      <button class="waves-effect waves-light btn" value="nb">New Brunswick</button>
+      <button class="waves-effect waves-light btn" value="nl">Newfoundland and Labrador</button>
+      <button class="waves-effect waves-light btn" value="nt">Northwest Territories</button>
+      <button class="waves-effect waves-light btn" value="ns">Nova Scotia</button>
+      <button class="waves-effect waves-light btn" value="nu">Nunavut</button>
+      <button class="waves-effect waves-light btn" value="on">Ontario</button>
+      <button class="waves-effect waves-light btn" value="pe">Prince Edward Island</button>
+      <button class="waves-effect waves-light btn" value="qc">Quebec</button>
+      <button class="waves-effect waves-light btn" value="sk">Saskatchewan</button>
+      <button class="waves-effect waves-light btn" value="yt">Yukon</button>           
+    </div>
+    <div class="row center">
+      <button id="compare" class="waves-effect waves-light btn center-align">Compare between Provinces</button>
+    </div>
+  </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Website Links</h4>
+      <p id="weblinks"></p>
+    </div>
+    <div class="modal-footer valign center">      
+        <button id="modalclose" class="btn">Close</button>     
+    </div>
+  </div>
+  <div id="spin"></div> 
+</body>
+</html>
