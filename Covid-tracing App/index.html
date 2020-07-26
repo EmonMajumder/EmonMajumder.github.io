@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Covid-19</title>
+  <title>Covid-19 Statistics for canada</title>
   <link rel="icon" href="icon.png">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="materialize-src\sass\materialize.css">
-  <script src="materialize-src\js\bin\materialize.min.js"></script>
-  <link rel="stylesheet" href="spin.css">
-  <script src="spin.js"></script>  
+  <link rel="stylesheet" href="materialize-src/sass/materialize.css">
+  <script src="materialize-src/js/bin/materialize.min.js"></script>
   <link rel="stylesheet" href="jqvmap.css"> 
-  <script src="jquery.vmap.js"></script>
-  <script src="jquery.vmap.canada.js"></script>
-  <script src="main.js"></script> 
+  <script src="js/jquery.vmap.js"></script>
+  <script src="js/jquery.vmap.canada.js"></script>
+  <script src="js/main.js"></script> 
 </head>
 <body>
-  <!-- This is heading -->
   <div class="container">
     <div class="row center">      
       <h3>Covid-19 Updates</h3>
@@ -69,6 +66,7 @@
         </tbody>
       </table>
     </div>
+    
     <div class="row center graph">
       <div class="case" id="caseandrecoverieschange">
 
@@ -117,15 +115,5 @@
       <button id="compare" class="waves-effect waves-light btn center-align">Compare between Provinces</button>
     </div>
   </div>
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Website Links</h4>
-      <p id="weblinks"></p>
-    </div>
-    <div class="modal-footer valign center">      
-        <button id="modalclose" class="btn">Close</button>     
-    </div>
-  </div>
-  <div id="spin"></div> 
 </body>
 </html>
