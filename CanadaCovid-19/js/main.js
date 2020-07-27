@@ -1,4 +1,4 @@
-$(function() {
+$(function() {    
 
     var urlprovincelist = 'https://api.covid19tracker.ca/provinces';
     var urlsummary = 'https://api.covid19tracker.ca/summary/';
