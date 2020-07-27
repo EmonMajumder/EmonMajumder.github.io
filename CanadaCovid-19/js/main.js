@@ -36,6 +36,8 @@ $(function() {
     $("#compare").click(()=>{compare()})    
 
     function loadmap(prov){
+        $("#vmapparent").empty();
+        $("#vmapparent").append('<div id="vmap"></div>');
         $('#vmap').vectorMap({
             map: 'canada_en',
             backgroundColor: null,

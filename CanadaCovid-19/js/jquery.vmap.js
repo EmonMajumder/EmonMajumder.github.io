@@ -181,9 +181,9 @@ var JQVMap = function (params) {
       }
     } else {
       map.unhighlight(code, containerPath);
-
       map.label.hide();
       jQuery(params.container).trigger('regionMouseOut.jqvmap', [code, mapData.paths[code].name]);
+      console.log("hit");
     }
   });
 
