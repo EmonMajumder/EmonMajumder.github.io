@@ -1,9 +1,9 @@
 $(function() {    
-
-    var urlprovincelist = 'https://api.covid19tracker.ca/provinces';
-    var urlsummary = 'https://api.covid19tracker.ca/summary/';
-    var urldetailbydate = "https://api.covid19tracker.ca/reports?fill_dates&stat=&date&after=2020-03-01&before";
-    var urldetailbydatebyprovince = `https://api.covid19tracker.ca/reports/province/none?fill_dates&stat=&date&after=2020-03-01&before`;
+    
+    var urlprovincelist = 'https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/provinces';
+    var urlsummary = 'https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/summary/';
+    var urldetailbydate = "https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/reports?fill_dates&stat=&date&after=2020-03-01&before";
+    var urldetailbydatebyprovince = `https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/reports/province/none?fill_dates&stat=&date&after=2020-03-01&before`;
     var height = 1000;
     var comparedata = [];
 
@@ -204,7 +204,6 @@ $(function() {
                 fetch(urlsummary)
                 .then(response => response.json())
                 .then(data=>{
-                    console.log(data.data[0])
                     $('tbody').prepend(
                         `<tr>
                             <td>Canada</td>
@@ -218,5 +217,5 @@ $(function() {
             })
             $(".graph").css("display","none");
         })
-    }
+    }        
 })
