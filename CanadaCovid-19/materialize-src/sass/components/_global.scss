@@ -486,7 +486,6 @@ td, th{
       position: relative;
       overflow-x: auto;
       white-space: nowrap;
-
       tr {
         display: inline-block;
         vertical-align: top;
@@ -498,8 +497,9 @@ td, th{
     }
     td {
       display: block;
+      width:100%;
       min-height: 1.25em;
-      text-align: left;
+      text-align: right;
     }
     tr {
       border-bottom: none;

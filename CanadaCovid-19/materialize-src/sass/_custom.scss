@@ -78,7 +78,14 @@ tr, th{
     width:33.33%;
   }
 
-  .column6{
+  .column6, .column5{
     width:16.5%;
   }
 }
+
+@media #{$medium-and-down}{
+  .column6{
+    height:93px;
+  }  
+}
+

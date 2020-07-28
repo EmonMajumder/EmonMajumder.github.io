@@ -172,7 +172,7 @@ $(function() {
             $("thead").html(
                 `<tr>
                     <th>Province</th>
-                    <th class="column6">Population</th>
+                    <th class="column5">Population</th>
                     <th class="column6">Test (% Population)</th>
                     <th class="column6">Case (% Test)</th>
                     <th class="column6">Active cases</th>
@@ -193,7 +193,7 @@ $(function() {
                         $('tbody').append(
                             `<tr>
                                 <td>${each.name}</td>
-                                <td class="column6">${each.population}</td>
+                                <td class="column5">${each.population}</td>
                                 <td class="column6">${eachprovince[0].total_tests} (${Math.round((parseInt(eachprovince[0].total_tests)*100)/parseInt(each.population) * 100) / 100}%)</td>
                                 <td class="column6">${eachprovince[0].total_cases} (${Math.round((parseInt(eachprovince[0].total_cases)*100)/parseInt(eachprovince[0].total_tests)* 100) / 100}%)</td>
                                 <td class="column6">${parseInt(eachprovince[0].total_cases)-parseInt(eachprovince[0].total_recoveries)-parseInt(eachprovince[0].total_fatalities)}</td>
@@ -209,7 +209,7 @@ $(function() {
                     $('tbody').prepend(
                         `<tr>
                             <td>Canada</td>
-                            <td class="column6">${canadatotalpopulation}</td>
+                            <td class="column5">${canadatotalpopulation}</td>
                             <td class="column6">${data.data[0].total_tests} (${Math.round((parseInt(data.data[0].total_tests)*100)/parseInt(canadatotalpopulation) * 100) / 100}%)</td>
                             <td class="column6">${data.data[0].total_cases} (${Math.round((parseInt(data.data[0].total_cases)*100)/parseInt(data.data[0].total_tests)* 100) / 100}%)</td>
                             <td class="column6">${parseInt(data.data[0].total_cases)-parseInt(data.data[0].total_recoveries)-parseInt(data.data[0].total_fatalities)}</td>

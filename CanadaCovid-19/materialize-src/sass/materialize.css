@@ -3051,8 +3051,9 @@ td, th {
   }
   table.responsive-table td {
     display: block;
+    width: 100%;
     min-height: 1.25em;
-    text-align: left;
+    text-align: right;
   }
   table.responsive-table tr {
     border-bottom: none;
@@ -9050,7 +9051,13 @@ tr .total, tr .new, th .total, th .new {
   width: 33.33%;
 }
 
-tr .column6, th .column6 {
+tr .column6, tr .column5, th .column6, th .column5 {
   width: 16.5%;
+}
+
+@media only screen and (max-width: 992px) {
+  .column6 {
+    height: 93px;
+  }
 }
 /*# sourceMappingURL=materialize.css.map */
