@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
         }else if($(this).children('.level-title').text()==" SQL"){
             $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/sql.png"/>');
         }else if($(this).children('.level-title').text()==" GitHub"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/octocat.png"/>');
+            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/octocat.png"/>');
         } else if($(this).children('.level-title').text()==" Linux/Unix"){
             $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/linux.png"/>');
         } else if($(this).children('.level-title').text()==" Hibernate"){
