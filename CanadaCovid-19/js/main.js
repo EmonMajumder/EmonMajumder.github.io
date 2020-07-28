@@ -4,7 +4,7 @@ $(function() {
     var urlsummary = 'https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/summary/';
     var urldetailbydate = "https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/reports?fill_dates&stat=&date&after=2020-03-01&before";
     var urldetailbydatebyprovince = `https://cors-proxyforemon.herokuapp.com/https://api.covid19tracker.ca/reports/province/none?fill_dates&stat=&date&after=2020-03-01&before`;
-    var height = 1000;
+    var height = 800;
     var comparedata = [];
 
     var requestOptions = {
@@ -74,12 +74,12 @@ $(function() {
                 <tr>
                     <td>Cases</td>
                     <td class="total">${latestdata.total_cases}</td>
-                    <td class="new">${latestdata.change_cases}</td>            
+                    <td class="new">${latestdata.change_cases == null? 0:latestdata.change_cases}</td>            
                 </tr>
                 <tr>
                     <td>Deaths</td>
                     <td class="total">${latestdata.total_fatalities}</td>
-                    <td class="new">${latestdata.change_fatalities}</td>
+                    <td class="new">${latestdata.change_fatalities  == null? 0:latestdata.change_fatalities}</td>
                 </tr>
                 <tr>
                     <td>Tests</td>
