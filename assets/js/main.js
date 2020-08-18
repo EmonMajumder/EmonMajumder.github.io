@@ -178,7 +178,8 @@ jQuery(document).ready(function($) {
                     }else if($(a).children('.title').text().includes("Senior Analyst")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/kaziit.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Class Representative")){
-                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/sa.jpg"/>`);
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/sa.jpg"/>
+                                                            <img class="img-fluid activity-image" src="assets/images/activities/sa-2.png"/>`);
                     }else if($(a).children('.title').text().includes("NSCC 2019 Blockchain Hackathon")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/blockchainhackathon.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Dalhousie University 2020 Banking and Insurance Hackathon")){
