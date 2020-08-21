@@ -364,6 +364,42 @@ a.dotted-link:hover {
   max-width: 225px;
 }
 
+/* Education section */
+.education .item {
+  margin-bottom: 30px;
+}
+
+.education .item:last-child {
+  margin-bottom: 0;
+}
+
+.education .item .title {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.education .item .university {
+  font-family: "Lato", arial, sans-serif;
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+  padding-left: 25px;
+}
+
+.education .item .university .year {
+  color: #b0b7bf;
+  font-weight: 500;
+}
+
+.education .item p {
+  padding-left: 25px;
+}
+
+.education .edulogo {
+  width: 40px;
+  border-radius: 100%;
+}
+
 /* Work Section */
 .experience .item {
   margin-bottom: 30px;
@@ -564,38 +600,6 @@ a.dotted-link:hover {
   color: #999;
 }
 
-/* Education section */
-.education .item {
-  margin-bottom: 30px;
-}
-
-.education .item:last-child {
-  margin-bottom: 0;
-}
-
-.education .item .title {
-  font-size: 16px;
-  margin-top: 0;
-}
-
-.education .item .university {
-  font-family: "Lato", arial, sans-serif;
-  font-size: 13px;
-  color: #999;
-  font-weight: 600;
-  padding-left: 25px;
-}
-
-.education .item .university .year {
-  color: #b0b7bf;
-  font-weight: 500;
-}
-
-.education .edulogo {
-  width: 40px;
-  border-radius: 100%;
-}
-
 /* Language Section */
 .languages .item {
   margin-bottom: 15px;
@@ -617,32 +621,6 @@ a.dotted-link:hover {
   color: #79d19a;
 }
 
-/* Blog Section */
-.blog .item {
-  margin-bottom: 30px;
-}
-
-.blog .item .title {
-  font-size: 18px;
-  line-height: 1.3;
-}
-
-.blog .item .title a {
-  color: #778492;
-}
-
-.blog .item .title a:hover {
-  color: #5f6b77;
-}
-
-.blog .item p {
-  margin-bottom: 5px;
-}
-
-.blog .item:last-child {
-  margin-bottom: 0;
-}
-
 /* List section */
 .list ul li {
   margin-bottom: 10px;
@@ -658,33 +636,6 @@ a.dotted-link:hover {
 
 .list ul li a:hover {
   color: #49515a;
-}
-
-/* Credits */
-.credits ul li {
-  margin-bottom: 10px;
-}
-
-.credits ul li .svg-inline--fa {
-  margin-right: 5px;
-  position: relative;
-  top: -2px;
-}
-
-.credits ul li a {
-  color: #778492;
-}
-
-.credits ul li a .svg-inline--fa {
-  color: #b0b7bf;
-}
-
-.credits ul li a:hover {
-  color: #49515a;
-}
-
-.credits .btn {
-  margin-bottom: 15px;
 }
 
 .aside .subheading {
