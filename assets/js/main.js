@@ -63,11 +63,33 @@ $(window).resize(function() {
     foreduyear = setTimeout(eduyear, 500);
 });
 
+function setskillicons(){        
+    $(".level-title:contains('C ')").prepend('<img class="langlogo" src="assets/images/languages/c.png"/>');
+    $(".level-title:contains('C++')").prepend('<img class="langlogo" src="assets/images/languages/c++.png"/>');
+    $(".level-title:contains('C#')").prepend('<img class="langlogo" src="assets/images/languages/cs.png"/>');
+    $(".level-title:contains('Java ')").prepend('<img class="langlogo" src="assets/images/languages/java.png"/>');
+    $(".level-title:contains('Python')").prepend('<img class="langlogo" src="assets/images/languages/python.jpg"/>');
+    $(".level-title:contains('HTML')").prepend('<img class="langlogo" src="assets/images/languages/html.png"/>');
+    $(".level-title:contains('CSS ')").prepend('<img class="langlogo" src="assets/images/languages/css.png"/>');
+    $(".level-title:contains('JavaScript')").prepend('<img class="langlogo" src="assets/images/languages/javascript.png"/>');
+    $(".level-title:contains('PHP')").prepend('<img class="langlogo" src="assets/images/languages/php.png"/>');
+    $(".level-title:contains('Android')").prepend('<img class="langlogo" src="assets/images/languages/android.png"/>');
+    $(".level-title:contains('SQL')").prepend('<img class="langlogo" src="assets/images/languages/sql.png"/>');
+    $(".level-title:contains('GitHub')").prepend('<img class="langlogo" src="assets/images/languages/octocat.png"/>');
+    $(".level-title:contains('Linux/Unix')").prepend('<img class="langlogo" src="assets/images/languages/linux.png"/>');
+    $(".level-title:contains('Hibernate')").prepend('<img class="langlogo" src="assets/images/languages/hibernate.png"/>');
+    $(".level-title:contains('UWP')").prepend('<img class="langlogo" src="assets/images/languages/uwp.png"/>');
+    $(".level-title:contains('SASS & SCSS')").prepend('<img class="langlogo" src="assets/images/languages/sass.png"/>');
+    $(".level-title:contains('Trello')").prepend('<img class="langlogo" src="assets/images/languages/trello.png"/>');
+    $(".level-title:contains('MS Project')").prepend('<img class="langlogo" src="assets/images/languages/msproject.png"/>');       
+}
+
 jQuery(document).ready(function($) {
 
     Projecttool();
     experienceyear();
     eduyear();
+    setskillicons();
 
     $(".otherproject > .item").each(function(){
         let a = this;
@@ -113,48 +135,7 @@ jQuery(document).ready(function($) {
             }            
         })
     })
-
-    $(".skillset > .item").each(function(){
-        
-        if($(this).children('.level-title').text()==" C"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/c.png"/>');
-        }else if($(this).children('.level-title').text()==" C++"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/c++.png"/>');
-        }else if($(this).children('.level-title').text()==" C#"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/cs.png"/>');
-        }else if($(this).children('.level-title').text()==" Java"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/java.png"/>');
-        }else if($(this).children('.level-title').text()==" Python"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/python.jpg"/>');
-        }else if($(this).children('.level-title').text()==" HTML"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/html.png"/>');
-        }else if($(this).children('.level-title').text()==" CSS"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/css.png"/>');
-        }else if($(this).children('.level-title').text()==" JavaScript"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/javascript.png"/>');
-        }else if($(this).children('.level-title').text()==" PHP"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/php.png"/>');
-        }else if($(this).children('.level-title').text()==" Android"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/android.png"/>');
-        }else if($(this).children('.level-title').text()==" SQL"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/sql.png"/>');
-        }else if($(this).children('.level-title').text()==" GitHub"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/octocat.png"/>');
-        } else if($(this).children('.level-title').text()==" Linux/Unix"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/linux.png"/>');
-        } else if($(this).children('.level-title').text()==" Hibernate"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/hibernate.png"/>');
-        } else if($(this).children('.level-title').text()==" UWP"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/uwp.png"/>');
-        } else if($(this).children('.level-title').text()==" SASS & SCSS"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/sass.png"/>');
-        } else if($(this).children('.level-title').text()==" Trello"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/trello.png"/>');
-        } else if($(this).children('.level-title').text()==" MS Project"){
-            $(this).children('.level-title').prepend('<img class="langlogo" src="assets/images/languages/msproject.png"/>');
-        }        
-    })
-
+   
 
     $(".experiencedetail > .item").each(function(){
         let a = this;
