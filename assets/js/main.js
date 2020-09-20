@@ -87,10 +87,11 @@ function setskillicons(){
 }
 
 function setbasicinfo(){
-    var viewportsize = $(window).width();
+
     var info = $(".info");
     $(".info").detach();
-    if (viewportsize<=991){
+    
+    if ($(".secondary").position().top>500){
         $(".secondary").append(info);
     }else{
         $(".secondary").prepend(info);
