@@ -53,6 +53,8 @@ var forexperienceyear;
 var foreduyear;
 
 $(window).resize(function() {
+    setbasicinfo();
+
     clearTimeout(forprojecttool);
     forprojecttool = setTimeout(Projecttool, 500);    
 
@@ -84,12 +86,24 @@ function setskillicons(){
     $(".level-title:contains('MS Project')").prepend('<img class="langlogo" src="assets/images/languages/msproject.png"/>');       
 }
 
+function setbasicinfo(){
+    var viewportsize = $(window).width();
+    var info = $(".info");
+    $(".info").detach();
+    if (viewportsize<=991){
+        $(".secondary").append(info);
+    }else{
+        $(".secondary").prepend(info);
+    }
+}
+
 jQuery(document).ready(function($) {
 
     Projecttool();
     experienceyear();
     eduyear();
     setskillicons();
+    setbasicinfo();
 
     $(".otherproject > .item").each(function(){
         let a = this;
