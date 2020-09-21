@@ -55,7 +55,7 @@ var forexperienceyear;
 var foreduyear;
 
 $(window).resize(function() {
-    setbasicinfo();
+    setbasicinfoforscreenresize();
 
     clearTimeout(forprojecttool);
     forprojecttool = setTimeout(Projecttool, 500);    
@@ -91,11 +91,22 @@ function setskillicons(){
 function setbasicinfo(){
 
     var info = $(".info");
-    $(".info").detach();
     
     if ($(".secondary").position().top>500){
+        $(".info").detach();
+        $(".secondary").append(info);
+    }
+}
+
+function setbasicinfoforscreenresize(){
+
+    var info = $(".info");
+    
+    if ($(".secondary").position().top>500){
+        $(".info").detach();
         $(".secondary").append(info);
     }else{
+        $(".info").detach();
         $(".secondary").prepend(info);
     }
 }
