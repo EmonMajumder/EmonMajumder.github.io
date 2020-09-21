@@ -50,9 +50,9 @@ $(function() {
             let code = countrycode(countrywithnumberofuniversity[i].countryname).toLowerCase();
             $("#top5").append(`
             <div class="col s2 flagimage">               
-                <img src="https://www.countryflags.io/${code}/flat/64.png">
+                <img src="https://www.countryflags.io/${code}/flat/64.pn" alt="${countrywithnumberofuniversity[i].countryname}">
                 <br>
-                <strong>${countrywithnumberofuniversity[i].number}</strong>                
+                <b>${countrywithnumberofuniversity[i].number}</b>                
             </div>`) 
         }
         $("#top5").append(`<div class="col s1"></div>`)     
@@ -221,14 +221,6 @@ $(function() {
         else{
             return mainlist.filter(currentValue=>currentValue.name.toLowerCase().search(userinput.toLowerCase())!=-1);
         }        
-    }
-
-    function sleep(milliseconds) {
-        const date = Date.now();
-        let currentDate = null;
-        do {
-        currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
     }
 
     function getfilteredcountrylist(userinput){
