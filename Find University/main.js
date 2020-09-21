@@ -64,6 +64,9 @@ $(function() {
     .then(()=>{
         spinner.stop();
     })
+    .catch(err=>{
+        alert("Network not available. Please try again.");
+    })
 
     
     function showcountries(countrylist){        
