@@ -13,7 +13,7 @@ $(window).on('load', function() {
 });
 
 function Projecttool(){
-    $('.otherproject > .item').each(function(index){
+    $('.otherproject > .item').each(function(){
         $(this).children('br').css("display","none");        
         if($(this).children('h3').children('.float-right').position().top +10 > $(this).children('.summary').position().top){        
             $(this).children('br').css("display","block");
@@ -22,13 +22,15 @@ function Projecttool(){
 }
 
 function experienceyear(){
-    $('.experiencedetail > .item').each(function(index){  
-        $(this).children('br').css("display","none");   
+    $('.experiencedetail > .item').each(function(){  
+        $(this).children('br').css("display","none"); 
+
         if($(this).children('h3').height() > 60){
             $(this).children('h3').children('.year').css("margin-top","0px");
         }else{
             $(this).children('h3').children('.year').css("margin-top","6px");
         }
+
         if($(this).children('h3').children('.year').length>0){
             if($(this).children('h3').children('.year').position().top +20 > $(this).children('p').position().top){                           
                 $(this).children('br').css("display","block");
@@ -39,7 +41,7 @@ function experienceyear(){
 }
 
 function eduyear(){
-    $('.edulist > .item').each(function(index){
+    $('.edulist > .item').each(function(){
         if($(this).children('.university').position().top == $(this).children('.university').children('.year').position().top){
             $(this).children('.university').children('.year').css("margin-top","11px");
         }else{
@@ -100,16 +102,17 @@ function setbasicinfo(){
 
 jQuery(document).ready(function($) {
 
+    setbasicinfo();
     Projecttool();
     experienceyear();
     eduyear();
-    setskillicons();
-    setbasicinfo();
+    setskillicons();    
 
     $(".otherproject > .item").each(function(){
         let a = this;
         $(this).children('.viewclick').click(function(){
             if($(a).children('.otherprojectgif').css("display") == "none"){
+
                 if($(a).children('.title').text().includes("Sort Algorithm Performance Test")){
                     $(a).children('.otherprojectgif').html('<img src="assets/images/projects/sort.gif"/><br>')
                 }else if($(a).children('.title').text().includes("Post-comment")){
@@ -143,10 +146,13 @@ jQuery(document).ready(function($) {
                 }
                 $(a).children('.otherprojectgif').css("display","block");
                 $(this).html($(this).html().replace("View","Hide"));
+
             }else{
+
                 $(a).children('.otherprojectgif').css("display","none");
                 $(this).html($(this).html().replace("Hide","View"));
                 $(a).children('.otherprojectgif').empty();
+
             }            
         })
     })
@@ -157,6 +163,7 @@ jQuery(document).ready(function($) {
         if($(a).children('.relatedimage').length>0){
             $(a).children('.viewimages').click(function(){
                 if($(a).children('.relatedimage').css("display") == "none"){
+                    
                     if($(a).children('.title').text().includes("International Student Ambassador")){
                         $(a).children('.relatedimage').html(
                             `<img class="img-fluid activity-image" src="assets/images/activities/nsccisa (7).jpg" />
