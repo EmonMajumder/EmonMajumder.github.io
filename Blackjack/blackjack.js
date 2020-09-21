@@ -446,6 +446,9 @@ $(function() {
           }  
         })       
       })
+      .catch(err => {
+        alert("Network error!!!");
+      })
   }
 
   function hit(){
