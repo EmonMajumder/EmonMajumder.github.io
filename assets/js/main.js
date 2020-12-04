@@ -198,6 +198,8 @@ jQuery(document).ready(function($) {
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/blockchainhackathon.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Dalhousie University 2020 Banking and Insurance Hackathon")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/bankinghackathon.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("Board of Governors’ Award")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/boardofgovernorsaward.jpg"/>`);
                     }
                     $(a).children('.relatedimage').css("display","block");
                     $(this).html($(this).html().replace("View","Hide"));
