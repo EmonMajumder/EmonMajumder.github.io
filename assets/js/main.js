@@ -187,7 +187,7 @@ jQuery(document).ready(function($) {
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (5).jpg" />
                             <img class="img-fluid activity-image" src="assets/images/activities/nsccisa (6).jpg" />`
                         );
-                    }else if($(a).children('.title').text().includes("Junior Software Developer (Co-op)")){
+                    }else if($(a).children('.title').text().includes("Developer (Co-op)")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/bbcertificate.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Senior Analyst")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/activities/kaziit.jpg"/>`);
