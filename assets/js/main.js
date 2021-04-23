@@ -79,6 +79,7 @@ function setskillicons(){
     $(".level-title:contains('PHP')").prepend('<img class="langlogo" src="assets/images/languages/php.png"/>');
     $(".level-title:contains('Android')").prepend('<img class="langlogo" src="assets/images/languages/android.png"/>');
     $(".level-title:contains('SQL')").prepend('<img class="langlogo" src="assets/images/languages/sql.png"/>');
+    $(".level-title:contains('Selenium')").prepend('<img class="langlogo" src="assets/images/languages/selenium.png"/>');
     $(".level-title:contains('GitHub')").prepend('<img class="langlogo" src="assets/images/languages/octocat.png"/>');
     $(".level-title:contains('Linux/Unix')").prepend('<img class="langlogo" src="assets/images/languages/linux.png"/>');
     $(".level-title:contains('Hibernate')").prepend('<img class="langlogo" src="assets/images/languages/hibernate.png"/>');
