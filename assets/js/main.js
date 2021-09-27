@@ -124,7 +124,6 @@ jQuery(document).ready(function($) {
         let a = this;
         $(this).children('.viewclick').click(function(){
             if($(a).children('.otherprojectgif').css("display") == "none"){
-
                 if($(a).children('.title').text().includes("Sort Algorithm Performance Test")){
                     $(a).children('.otherprojectgif').html('<img src="assets/images/projects/sort.gif"/><br>')
                 }else if($(a).children('.title').text().includes("Post-comment")){
@@ -158,13 +157,10 @@ jQuery(document).ready(function($) {
                 }
                 $(a).children('.otherprojectgif').css("display","block");
                 $(this).html($(this).html().replace("View","Hide"));
-
             }else{
-
                 $(a).children('.otherprojectgif').css("display","none");
                 $(this).html($(this).html().replace("Hide","View"));
                 $(a).children('.otherprojectgif').empty();
-
             }            
         })
     })
@@ -201,12 +197,16 @@ jQuery(document).ready(function($) {
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/bankinghackathon.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Board of Governors’ Award")){
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/boardofgovernorsaward.jpg"/>`);
+                    }else if($(a).children('.title').text().includes("Scrum Master")){
+                        $(a).children('.relatedimage').html(`<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e21ccea8-10a7-439f-8ba7-9f59dcb5e447" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`);
                     }
                     $(a).children('.relatedimage').css("display","block");
                     $(this).html($(this).html().replace("View","Hide"));
+                    $(this).html($(this).html().replace("Verify","Close"));
                 }else{
                     $(a).children('.relatedimage').css("display","none");
                     $(this).html($(this).html().replace("Hide","View"));
+                    $(this).html($(this).html().replace("Close","Verify"));
                 }            
             })
         }        
