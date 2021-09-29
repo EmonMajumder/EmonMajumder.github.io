@@ -199,6 +199,8 @@ jQuery(document).ready(function($) {
                         $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/boardofgovernorsaward.jpg"/>`);
                     }else if($(a).children('.title').text().includes("Scrum Master")){
                         $(a).children('.relatedimage').html(`<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e21ccea8-10a7-439f-8ba7-9f59dcb5e447" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`);
+                    }else if($(a).children('.title').text().includes("Red Hat Certified Specialist in Containers and Kubernetes")){
+                        $(a).children('.relatedimage').html(`<img class="img-fluid activity-image" src="assets/images/EX180.JPG"/>`);
                     }
                     $(a).children('.relatedimage').css("display","block");
                     $(this).html($(this).html().replace("View","Hide"));
