@@ -543,7 +543,14 @@
             ordersList.style.display = 'flex';
             emptyOrders.style.display = 'none';
 
-            ordersList.innerHTML = orders.map(order => `
+            ordersList.innerHTML = orders.map(order => {
+                var customerName = (order.customer && order.customer.name) ? order.customer.name : 'N/A';
+                var customerPhone = (order.customer && order.customer.phone) ? order.customer.phone : 'N/A';
+                var customerAddr = (order.customer && order.customer.address) ? order.customer.address + ', ' + (order.customer.city || '') : 'N/A';
+                var orderTotal = (typeof order.total === 'number') ? order.total.toFixed(2) : '0.00';
+                var orderShipping = order.shipping || 'N/A';
+
+                return `
                 <div class="order-card" data-order-id="${order.id}">
                     <div class="order-header">
                         <div class="order-header-left">
@@ -563,33 +570,33 @@
                     <div class="order-body">
                         <div class="customer-info">
                             <i class="fas fa-user"></i>
-                            <span><strong>${order.customer ? order.customer.name : 'N/A'}</strong></span>
+                            <span><strong>${customerName}</strong></span>
                             <i class="fas fa-phone"></i>
-                            <span>${order.customer ? order.customer.phone : 'N/A'}</span>
+                            <span>${customerPhone}</span>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>${order.customer ? order.customer.address + ', ' + order.customer.city : 'N/A'}</span>
+                            <span>${customerAddr}</span>
                         </div>
                         <div class="order-items">
-                            ${order.items.map(item => `
+                            ${(order.items || []).map(item => `
                                 <div class="order-item">
-                                    <img src="${item.image}" alt="${item.name}">
+                                    <img src="${item.image || ''}" alt="${item.name || ''}" onerror="this.style.display='none'">
                                     <div class="order-item-details">
-                                        <h4>${item.name}</h4>
-                                        <p>Size: ${item.size} | Qty: ${item.quantity}</p>
+                                        <h4>${item.name || 'Unknown Item'}</h4>
+                                        <p>Size: ${item.size || 'N/A'} | Qty: ${item.quantity || 1}</p>
                                     </div>
-                                    <span class="order-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                                    <span class="order-item-price">$${((item.price || 0) * (item.quantity || 1)).toFixed(2)}</span>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
                     <div class="order-footer">
-                        <span class="order-total">Total: $${order.total.toFixed(2)} (Shipping: ${order.shipping})</span>
+                        <span class="order-total">Total: $${orderTotal} (Shipping: ${orderShipping})</span>
                         <div class="order-actions">
                             <button class="btn btn-outline" onclick="deleteOrder('${order.id}')"><i class="fas fa-trash"></i> Delete</button>
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         // Change order status

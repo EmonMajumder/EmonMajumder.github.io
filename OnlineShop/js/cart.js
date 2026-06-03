@@ -183,34 +183,38 @@ function renderCheckout() {
 function processCheckout(e) {
     e.preventDefault();
 
-    // Get form data
-    const form = document.getElementById('checkoutForm');
-    const inputs = form.querySelectorAll('input, select');
-    const name = form.querySelector('input[placeholder="John Doe"]')?.value || '';
-    const phone = form.querySelector('input[type="tel"]')?.value || '';
-    const address = form.querySelector('input[placeholder="123 Main Street"]')?.value || '';
-    const city = form.querySelector('input[placeholder="New York"]')?.value || '';
+    // Get form data using element IDs
+    const name = document.getElementById('customerName')?.value || '';
+    const phone = document.getElementById('customerPhone')?.value || '';
+    const address = document.getElementById('customerAddress')?.value || '';
+    const city = document.getElementById('customerCity')?.value || '';
 
     // Save order to localStorage
     const order = {
         id: 'ORD-2026-' + String(Date.now()).slice(-4),
         date: new Date().toISOString().split('T')[0],
         status: 'processing',
-        customer: { name, phone, address, city },
-        items: cart.items.map(item => ({
-            name: item.name,
-            size: item.size,
-            quantity: item.quantity,
-            price: item.price,
-            image: item.image
-        })),
+        customer: { name: name, phone: phone, address: address, city: city },
+        items: cart.items.map(function(item) {
+            return {
+                name: item.name,
+                size: item.size,
+                quantity: item.quantity,
+                price: item.price,
+                image: item.image
+            };
+        }),
         total: cart.getTotal() + (cart.getTotal() > 100 ? 0 : 9.99),
         shipping: cart.getTotal() > 100 ? 'Free' : '$9.99'
     };
 
-    const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
-    savedOrders.unshift(order);
-    localStorage.setItem('orders', JSON.stringify(savedOrders));
+    try {
+        var savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        savedOrders.unshift(order);
+        localStorage.setItem('orders', JSON.stringify(savedOrders));
+    } catch (err) {
+        console.error('Failed to save order:', err);
+    }
 
     cart.clear();
     document.getElementById('orderModal').classList.add('active');
