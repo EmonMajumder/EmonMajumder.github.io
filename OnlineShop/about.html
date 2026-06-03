@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - StyleHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo"><i class="fas fa-tshirt"></i> StyleHub</a>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="page-header">
+        <h1>About Us</h1>
+        <p>Our story and mission</p>
+    </section>
+
+    <section class="about-section section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2020, StyleHub started with a simple mission: to make high-quality, fashionable clothing accessible to everyone. We believe that style shouldn't come with a hefty price tag.</p>
+                    <p>Our team of passionate designers and fashion enthusiasts work tirelessly to bring you the latest trends from around the world. We source our materials ethically and ensure every piece meets our high standards of quality.</p>
+                    <h2>Our Values</h2>
+                    <ul class="values-list">
+                        <li><i class="fas fa-leaf"></i> <strong>Sustainability</strong> - Eco-friendly materials and ethical production</li>
+                        <li><i class="fas fa-heart"></i> <strong>Quality</strong> - Premium fabrics that last</li>
+                        <li><i class="fas fa-users"></i> <strong>Inclusivity</strong> - Fashion for every body type</li>
+                        <li><i class="fas fa-truck"></i> <strong>Convenience</strong> - Fast shipping worldwide</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=700&fit=crop" alt="Our Store">
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>50K+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1000+</h3>
+                    <p>Products</p>
+                </div>
+                <div class="stat-card">
+                    <h3>30+</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="stat-card">
+                    <h3>4.8★</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product - StyleHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .add-product-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .image-upload-area {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            background: var(--bg-light);
+        }
+
+        .image-upload-area:hover,
+        .image-upload-area.dragover {
+            border-color: var(--accent);
+            background: #fff5f5;
+        }
+
+        .image-upload-area i {
+            font-size: 3rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .image-upload-area p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .image-upload-area span {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .image-upload-area input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .image-preview-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 120px;
+            box-shadow: var(--shadow);
+        }
+
+        .image-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-preview-item .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .image-preview-item .remove-image:hover {
+            background: var(--accent-hover);
+            transform: scale(1.1);
+        }
+
+        .product-form {
+            background: white;
+            padding: 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .product-form h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-form h2 i {
+            color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .price-input-wrapper {
+            position: relative;
+        }
+
+        .price-input-wrapper span {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .price-input-wrapper input {
+            padding-left: 30px !important;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: #d4edda;
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+
+        .success-message i {
+            font-size: 3rem;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .success-message h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .success-message p {
+            color: #155724;
+            opacity: 0.8;
+        }
+
+        .product-preview {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            display: none;
+        }
+
+        .product-preview h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-preview .preview-card {
+            max-width: 280px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo"><i class="fas fa-tshirt"></i> StyleHub</a>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="add-product.html" class="active">Add Product</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="add-product.html">Add Product</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Add New Product</h1>
+        <p>Upload your product details to the store</p>
+    </section>
+
+    <!-- Add Product Form -->
+    <section class="section">
+        <div class="container add-product-section">
+            <div class="product-form">
+                <h2><i class="fas fa-plus-circle"></i> Product Details</h2>
+                <form id="addProductForm" onsubmit="handleAddProduct(event)">
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label>Product Images</label>
+                        <div class="image-upload-area" id="imageUploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop images here or click to browse</p>
+                            <span>Supports: JPG, PNG, WEBP (Max 5MB each)</span>
+                            <input type="file" id="imageInput" accept="image/*" multiple onchange="handleImageUpload(event)">
+                        </div>
+                        <div class="image-preview-grid" id="imagePreviewGrid"></div>
+                    </div>
+
+                    <!-- Product Name -->
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" required placeholder="e.g., Classic Cotton T-Shirt" oninput="updatePreview()">
+                    </div>
+
+                    <!-- Category -->
+                    <div class="form-group">
+                        <label for="productCategory">Category *</label>
+                        <select id="productCategory" required onchange="updatePreview()">
+                            <option value="">Select a category</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productPrice">Price *</label>
+                            <div class="price-input-wrapper">
+                                <span>$</span>
+                                <input type="number" id="productPrice" required min="0.01" step="0.01" placeholder="29.99" oninput="updatePreview()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productOriginalPrice">Original Price (optional)</label>
+                            <div class="price-input-wrapper">
+                                <span>$</span>
+                                <input type="number" id="productOriginalPrice" min="0.01" step="0.01" placeholder="49.99" oninput="updatePreview()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sizes -->
+                    <div class="form-group">
+                        <label>Available Sizes</label>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:5px;">
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="XS"> XS
+                            </label>
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="S"> S
+                            </label>
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="M" checked> M
+                            </label>
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="L" checked> L
+                            </label>
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="XL"> XL
+                            </label>
+                            <label style="display:flex; align-items:center; gap:5px; padding:0;">
+                                <input type="checkbox" name="sizes" value="XXL"> XXL
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="productDescription">Description *</label>
+                        <textarea id="productDescription" rows="5" required placeholder="Describe your product — material, fit, style, care instructions..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="form-group">
+                        <label for="productTags">Tags (comma-separated)</label>
+                        <input type="text" id="productTags" placeholder="e.g., casual, summer, cotton, trendy">
+                    </div>
+
+                    <!-- Badge -->
+                    <div class="form-group">
+                        <label for="productBadge">Product Badge</label>
+                        <select id="productBadge">
+                            <option value="">None</option>
+                            <option value="New">New</option>
+                            <option value="Sale">Sale</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Limited">Limited Edition</option>
+                        </select>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="resetForm()">
+                            <i class="fas fa-undo"></i> Reset
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Product
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Product Added Successfully!</h3>
+                    <p>Your product has been added to the store catalog.</p>
+                    <br>
+                    <button class="btn btn-primary" onclick="addAnother()">Add Another Product</button>
+                    <a href="shop.html" class="btn btn-outline" style="margin-left:10px;">View Shop</a>
+                </div>
+            </div>
+
+            <!-- Live Preview -->
+            <div class="product-preview" id="productPreview">
+                <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                <div class="preview-card" id="previewCard"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        let uploadedImages = [];
+
+        // Handle image upload
+        function handleImageUpload(event) {
+            const files = event.target.files;
+            for (let file of files) {
+                if (file.size > 5 * 1024 * 1024) {
+                    showToast('File too large. Max size is 5MB.');
+                    continue;
+                }
+                if (!file.type.startsWith('image/')) {
+                    showToast('Please upload image files only.');
+                    continue;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    uploadedImages.push(e.target.result);
+                    renderImagePreviews();
+                    updatePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Render image previews
+        function renderImagePreviews() {
+            const grid = document.getElementById('imagePreviewGrid');
+            grid.innerHTML = uploadedImages.map((img, index) => `
+                <div class="image-preview-item">
+                    <img src="${img}" alt="Product image ${index + 1}">
+                    <button class="remove-image" onclick="removeImage(${index})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Remove image
+        function removeImage(index) {
+            uploadedImages.splice(index, 1);
+            renderImagePreviews();
+            updatePreview();
+        }
+
+        // Drag and drop
+        const uploadArea = document.getElementById('imageUploadArea');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            document.getElementById('imageInput').files = files;
+            handleImageUpload({ target: { files } });
+        });
+
+        // Live preview update
+        function updatePreview() {
+            const name = document.getElementById('productName').value;
+            const price = document.getElementById('productPrice').value;
+            const originalPrice = document.getElementById('productOriginalPrice').value;
+            const category = document.getElementById('productCategory').value;
+            const previewDiv = document.getElementById('productPreview');
+            const previewCard = document.getElementById('previewCard');
+
+            if (name || price || uploadedImages.length > 0) {
+                previewDiv.style.display = 'block';
+                const imgSrc = uploadedImages.length > 0
+                    ? uploadedImages[0]
+                    : 'https://via.placeholder.com/400x500/f0f0f0/999?text=No+Image';
+
+                previewCard.innerHTML = `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${imgSrc}" alt="${name || 'Product'}">
+                        </div>
+                        <div class="product-info">
+                            <p class="category">${category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Category'}</p>
+                            <h3>${name || 'Product Name'}</h3>
+                            <div class="product-price">
+                                <span class="current">$${price ? parseFloat(price).toFixed(2) : '0.00'}</span>
+                                ${originalPrice ? `<span class="original">$${parseFloat(originalPrice).toFixed(2)}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                previewDiv.style.display = 'none';
+            }
+        }
+
+        // Handle form submission
+        function handleAddProduct(event) {
+            event.preventDefault();
+
+            if (uploadedImages.length === 0) {
+                showToast('Please upload at least one product image.');
+                return;
+            }
+
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const price = parseFloat(document.getElementById('productPrice').value);
+            const originalPrice = document.getElementById('productOriginalPrice').value
+                ? parseFloat(document.getElementById('productOriginalPrice').value)
+                : null;
+            const description = document.getElementById('productDescription').value;
+            const tags = document.getElementById('productTags').value;
+            const badge = document.getElementById('productBadge').value || null;
+            const sizes = Array.from(document.querySelectorAll('input[name="sizes"]:checked')).map(cb => cb.value);
+
+            // Create new product object
+            const newProduct = {
+                id: products.length + 1 + Date.now(),
+                name,
+                category,
+                price,
+                originalPrice,
+                image: uploadedImages[0],
+                badge,
+                isNew: badge === 'New',
+                isFeatured: false,
+                description,
+                tags: tags.split(',').map(t => t.trim()).filter(Boolean),
+                sizes,
+                images: uploadedImages
+            };
+
+            // Add to products array (in-memory for this session)
+            products.push(newProduct);
+
+            // Save to localStorage for persistence
+            let savedProducts = JSON.parse(localStorage.getItem('customProducts')) || [];
+            savedProducts.push(newProduct);
+            localStorage.setItem('customProducts', JSON.stringify(savedProducts));
+
+            // Show success
+            document.getElementById('addProductForm').style.display = 'none';
+            document.getElementById('productPreview').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            showToast('Product added successfully!');
+        }
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('addProductForm').reset();
+            uploadedImages = [];
+            renderImagePreviews();
+            document.getElementById('productPreview').style.display = 'none';
+        }
+
+        // Add another product
+        function addAnother() {
+            document.getElementById('addProductForm').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            resetForm();
+        }
+
+        // Load custom products from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = JSON.parse(localStorage.getItem('customProducts')) || [];
+            saved.forEach(p => {
+                if (!products.find(existing => existing.id === p.id)) {
+                    products.push(p);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
